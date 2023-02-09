@@ -1,0 +1,13 @@
+Ether / IP / TCP 192.168.1.45:17279 > 20.42.65.89:https S
+Ether / IP / TCP 20.42.65.89:https > 192.168.1.45:17279 SA
+Ether / IP / TCP 20.42.65.89:https > 192.168.1.45:17279 A / Raw
+Ether / IP / TCP 20.42.65.89:https > 192.168.1.45:17279 PA / Raw
+Ether / IP / TCP 20.42.65.89:https > 192.168.1.45:17279 A / Padding
+Ether / IP / TCP 20.42.65.89:https > 192.168.1.45:17279 A
+Ether / IP / TCP 20.42.73.139:https > 192.168.1.45:17280 PA / Raw
+Ether / IP / TCP 20.42.73.139:https > 192.168.1.45:17280 PA / Raw
+Ether / IP / TCP 20.42.73.139:https > 192.168.1.45:17280 FPA / Raw
+Ether / IP / TCP 157.240.6.53:https > 192.168.1.45:17276 A
+Ether / IP / TCP 192.168.1.45:17275 > 157.240.6.53:https PA / Raw
+Ether / IP / TCP 157.240.6.53:https > 192.168.1.45:17275 A / Padding
+Ether / IP / TCP 157.240.6.53:https > 192.168.1.45:17275 PA / Raw

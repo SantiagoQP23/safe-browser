@@ -1,6 +1,7 @@
 
 # Import funciones de otros archivos
 import capture_packets 
+import analyze_packets
 
 
 
@@ -10,7 +11,7 @@ import capture_packets
 def menu():
     print("--------------------------------------------")
     print("Welcome to the menu")
-    print("1. Capturar paquetes")
+    print("1. Capturar paquetes y analizar paquetes")
     print("2. Analizar paquetes")
     print("3. Resultados")
     print("4. Salir")
@@ -32,10 +33,12 @@ def main():
         if option == 1:
             print("You have selected option 1")
             time_limit = int(input("Introduce el tiempo de ejecución en segundos: "))
-            capture_packets.capture_packets_and_analyze(time_limit)
+            capture_packets.capture_packets(time_limit)
+            analyze_packets.analyze()
 
         elif option == 2:
             print("You have selected option 2")
+            analyze_packets.analyze()
         elif option == 3:
             print("You have selected option 3")
         elif option == 4:

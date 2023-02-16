@@ -22,9 +22,8 @@ def get_url():
 
 
 
-def get_url_from_ip(ip_address):
+def get_info_ip(ip_address):
     handler = ipinfo.getHandler(access_token)
     details = handler.getDetails(ip_address)
     return details
 
-get_url_from_ip(ip_address)

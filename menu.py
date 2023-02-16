@@ -34,7 +34,8 @@ def main():
             print("You have selected option 1")
             time_limit = int(input("Introduce el tiempo de ejecución en segundos: "))
             capture_packets.capture_packets(time_limit)
-            analyze_packets.analyze()
+            capture_packets.save_packets_db()
+            # analyze_packets.analyze()
 
         elif option == 2:
             print("You have selected option 2")

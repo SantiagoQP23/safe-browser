@@ -12,7 +12,7 @@ class CaptureService:
         self.client = MongoClient(mongodb_cnn)
         try:
             db_list = self.client.list_database_names()
-            print("Conexión exitosa!")
+           
         except Exception as e:
             print("Error al conectar a la base de datos:", e)
         self.db = self.client["packetsdb"]
@@ -24,6 +24,10 @@ class CaptureService:
 
     def find(self, query):
         return self.collection.find(query)
+    
+    def count(self, query):
+        return self.collection.count_documents(query)
+    
 
     def delete(self, query):
         result = self.collection.delete_one(query)
@@ -34,7 +38,7 @@ class DestinationIPService:
         self.client = MongoClient(mongodb_cnn)
         try:
             db_list = self.client.list_database_names()
-            print("Conexión exitosa!")
+            
         except Exception as e:
             print("Error al conectar a la base de datos:", e)
         self.db = self.client["packetsdb"]
@@ -46,6 +50,9 @@ class DestinationIPService:
 
     def find(self, query):
         return self.collection.find(query)
+    
+    def count(self, query):
+        return self.collection.count_documents(query)
     
     def find_one(self, query):
         return self.collection.find_one(query)
@@ -59,7 +66,7 @@ class IPAnalysisService:
         self.client = MongoClient(mongodb_cnn)
         try:
             db_list = self.client.list_database_names()
-            print("Conexión exitosa!")
+            
         except Exception as e:
             print("Error al conectar a la base de datos:", e)
         self.db = self.client["packetsdb"]
@@ -68,12 +75,45 @@ class IPAnalysisService:
     def insert(self, data):
         result = self.collection.insert_one(data)
         return result.inserted_id
+    
+    def count(self, query):
+        return self.collection.count_documents(query)
 
     def find(self, query):
         return self.collection.find(query)
+    
+    def find_one(self, query):
+        return self.collection.find_one(query)
 
     def delete(self, query):
         result = self.collection.delete_one(query)
         return result.deleted_count
 
 
+class ConfigService():
+    def __init__(self):
+        self.client = MongoClient(mongodb_cnn)
+        try:
+            db_list = self.client.list_database_names()
+            
+        except Exception as e:
+            print("Error al conectar a la base de datos:", e)
+        self.db = self.client["packetsdb"]
+        self.collection = self.db["config"]
+
+    def insert(self, data):
+        result = self.collection.insert_one(data)
+        return result.inserted_id
+    
+    def count(self, query):
+        return self.collection.count_documents(query)
+
+    def find(self, query):
+        return self.collection.find(query)
+    
+    def find_one(self, query):
+        return self.collection.find_one(query)
+
+    def delete(self, query):
+        result = self.collection.delete_one(query)
+        return result.deleted_count

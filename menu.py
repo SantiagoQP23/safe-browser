@@ -3,21 +3,21 @@
 import capture_packets 
 import analyze_packets
 
-
-
-
+import reports
 
 #create a menu navigation
 def menu():
     print("--------------------------------------------")
-    print("Welcome to the menu")
+    print("        Bienvenido al menú                  ")
+    print("--------------------------------------------")
     print("1. Capturar paquetes y analizar paquetes")
-    print("2. Analizar paquetes")
-    print("3. Resultados")
-    print("4. Salir")
+    print("2. Reporte de capturas")
+    print("3. Reporte de IPs")
+    print("4. Reporte de análisis de IPs")
+    print("5. Salir")
     
-    print("Por favor, seleccione una opción: ")
-    option = int(input())
+    option = int(input("Por favor, seleccione una opción: "))
+
     return option
 
 #main function
@@ -29,26 +29,46 @@ def main():
       print("Introduce un número")
       option = menu()
       
-    while option != 11:
+    while option != 5:
         if option == 1:
-            print("You have selected option 1")
             time_limit = int(input("Introduce el tiempo de ejecución en segundos: "))
+
+            print("--------------------------------------------")
+            print("   Capturando paquetes           ")
+            print("--------------------------------------------")
             capture_packets.capture_packets(time_limit)
-            capture_packets.save_packets_db()
-            # analyze_packets.analyze()
+
+            print("--------------------------------------------")
+            print("   Analizando paquetes capturados           ")
+            print("--------------------------------------------")
+
+            capture_packets.analyze_and_save_packets_db()
 
         elif option == 2:
-            print("You have selected option 2")
-            analyze_packets.analyze()
+            print("--------------------------------------------")
+            print("   Reporte de capturas           ")
+            print("--------------------------------------------")
+            
+            reports.show_report_captures()
+
+            
         elif option == 3:
-            print("You have selected option 3")
+            print("--------------------------------------------")
+            print("   Reporte de IPs           ")
+            print("--------------------------------------------")
+            reports.show_reports_ip();
+
         elif option == 4:
-            print("You have selected option 4")
+            print("--------------------------------------------")
+            print("   Reporte de análisis de IPs           ")
+            print("--------------------------------------------")
+            reports.show_reports_analysis()
+            
         else:
             print("Invalid option")
         option = menu()
 
-    print("Thank you for using the menu")
+    print("Gracias por usar el programa. Hasta pronto!")
 
 
 if __name__ == "__main__":

@@ -113,6 +113,10 @@ class ConfigService():
     
     def find_one(self, query):
         return self.collection.find_one(query)
+    
+    def update(self, query, data):
+        result = self.collection.update_one(query, data)
+        return result.modified_count
 
     def delete(self, query):
         result = self.collection.delete_one(query)

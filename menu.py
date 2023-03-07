@@ -1,7 +1,6 @@
 
 # Import funciones de otros archivos
 import capture_packets 
-import analyze_packets
 
 import reports
 
@@ -14,7 +13,8 @@ def menu():
     print("2. Reporte de capturas")
     print("3. Reporte de IPs")
     print("4. Reporte de análisis de IPs")
-    print("5. Salir")
+    print("5. Configuración")
+    print("6. Salir")
     
     option = int(input("Por favor, seleccione una opción: "))
 
@@ -29,7 +29,7 @@ def main():
       print("Introduce un número")
       option = menu()
       
-    while option != 5:
+    while option != 6:
         if option == 1:
             time_limit = int(input("Introduce el tiempo de ejecución en segundos: "))
 
@@ -63,6 +63,22 @@ def main():
             print("   Reporte de análisis de IPs           ")
             print("--------------------------------------------")
             reports.show_reports_analysis()
+
+        elif option == 5:
+            print("--------------------------------------------")
+            print("   Configuración           ")
+            print("--------------------------------------------")
+            print("Interfaz de red: " + capture_packets.get_interface())
+
+            op = input("Presiona 1 para cambiar la interfaz de red: ")
+
+            if op == "1":
+              interface = input("Introduce la interfaz de red: ")
+              capture_packets.set_interface(interface)
+
+            
+            
+
             
         else:
             print("Invalid option")
